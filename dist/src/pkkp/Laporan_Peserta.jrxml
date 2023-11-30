@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="96cf50aa-af8f-486c-a741-432431fc26d2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     peserta.`nik` AS peserta_nik,
+     peserta.`kab_asal` AS peserta_kab_asal,
+     peserta.`kab_penempatan` AS peserta_kab_penempatan,
+     peserta.`nama_lengkap` AS peserta_nama_lengkap,
+     peserta.`ttl` AS peserta_ttl,
+     peserta.`jenis_kelamin` AS peserta_jenis_kelamin,
+     peserta.`alamat` AS peserta_alamat,
+     peserta.`agama` AS peserta_agama,
+     peserta.`no_telp` AS peserta_no_telp,
+     peserta.`email` AS peserta_email,
+     peserta.`universitas` AS peserta_universitas,
+     peserta.`fakultas` AS peserta_fakultas,
+     peserta.`jurusan` AS peserta_jurusan,
+     peserta.`tahun_lulus` AS peserta_tahun_lulus,
+     peserta.`ipk` AS peserta_ipk
+FROM
+     `peserta` peserta]]>
+	</queryString>
+	<field name="peserta_nik" class="java.lang.String"/>
+	<field name="peserta_kab_asal" class="java.lang.String"/>
+	<field name="peserta_kab_penempatan" class="java.lang.String"/>
+	<field name="peserta_nama_lengkap" class="java.lang.String"/>
+	<field name="peserta_ttl" class="java.lang.String"/>
+	<field name="peserta_jenis_kelamin" class="java.lang.String"/>
+	<field name="peserta_alamat" class="java.lang.String"/>
+	<field name="peserta_agama" class="java.lang.String"/>
+	<field name="peserta_no_telp" class="java.lang.String"/>
+	<field name="peserta_email" class="java.lang.String"/>
+	<field name="peserta_universitas" class="java.lang.String"/>
+	<field name="peserta_fakultas" class="java.lang.String"/>
+	<field name="peserta_jurusan" class="java.lang.String"/>
+	<field name="peserta_tahun_lulus" class="java.lang.String"/>
+	<field name="peserta_ipk" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="95a67d0b-6017-4591-9224-511b06b11c02"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="658" y="0" width="144" height="32" forecolor="#000000" uuid="240935f4-77aa-44fa-a3a2-ebcbf633c263"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement style="SubTitle" x="342" y="37" width="316" height="29" forecolor="#000000" uuid="c9be1437-26ac-4658-8caa-37636a759e4f"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PKKP 2023 Jawa Tengah]]></text>
+			</staticText>
+			<image>
+				<reportElement x="677" y="0" width="125" height="70" uuid="e4eaff22-7746-4a41-ba42-42f535818069"/>
+				<imageExpression><![CDATA["E:\\Documents\\pkkp.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="533" y="17" width="144" height="20" forecolor="#FFFFFF" uuid="1cb50f02-a40e-4a14-b139-ad3663716902"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="342" height="70" forecolor="#000000" uuid="5bda1cec-9c11-46d7-ba0b-30c2476aa98e"/>
+				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Laporan Peserta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="76" height="18" forecolor="#000000" uuid="0c4c707d-8cb0-439b-9fd7-ded9f59f3085"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[nik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="76" y="0" width="49" height="18" forecolor="#000000" uuid="612ed3eb-8941-451a-8647-e7210f304c77"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[kab.asal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="125" y="0" width="63" height="18" forecolor="#000000" uuid="70dca85e-9e87-4fd3-83dc-72f78a85b160"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[penempatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="188" y="0" width="63" height="18" forecolor="#000000" uuid="e446666e-0e2f-4dab-81a4-58969fd5ba21"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="251" y="0" width="56" height="18" forecolor="#000000" uuid="71d52976-110e-438b-bb91-5820ce0c615d"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ttl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="307" y="0" width="54" height="18" forecolor="#000000" uuid="3c5d7ffc-6ba6-4b1a-89b7-6941cd48e579"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jns Kel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="361" y="0" width="63" height="18" forecolor="#000000" uuid="475e99ca-5f10-4710-934d-e20188118ead"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="424" y="0" width="42" height="18" forecolor="#000000" uuid="3c8e8516-3c58-443b-9199-5fdb33dd4a89"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[agama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="466" y="0" width="53" height="18" forecolor="#000000" uuid="41b8e326-b783-422c-aa7d-b1a0b06ef12b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[no_telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="519" y="0" width="36" height="18" forecolor="#000000" uuid="187bcb82-0f74-4de2-b6e4-233a3c564de2"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="555" y="0" width="59" height="18" forecolor="#000000" uuid="9d9718ad-a53f-4d2c-997e-e639cb4e691a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[universitas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="614" y="0" width="44" height="18" forecolor="#000000" uuid="029c150a-53d9-477a-b0af-9b6b9283d964"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fakultas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="658" y="0" width="41" height="18" forecolor="#000000" uuid="aa834b9a-30ca-4eb6-85ce-e152718666b3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[jurusan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="699" y="0" width="58" height="18" forecolor="#000000" uuid="d9809c9d-dd06-4e68-ba8c-22b2ecc9f3ee"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[tahun lulus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="757" y="0" width="45" height="18" forecolor="#000000" uuid="343e81a8-bfbf-423d-af7f-7aac804978dd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ipk]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="ddf9ddc8-cd08-4d93-9980-ccdc83febdb0"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="76" height="18" uuid="6a3a23a2-52e6-4f15-92c0-1fb800ed2cf2"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_nik}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="76" y="0" width="49" height="18" uuid="e97afe2f-bb35-4932-b182-0ec3756af55b"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_kab_asal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="125" y="0" width="63" height="18" uuid="ea3c7b27-03b2-4370-b46e-daf4d4ca0aab"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_kab_penempatan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="188" y="0" width="63" height="18" uuid="428374be-018f-4f8c-b95a-69a8c2cf4dc5"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_nama_lengkap}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="251" y="0" width="56" height="18" uuid="58a88174-22dd-49a3-886b-512d1f2f4c88"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_ttl}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="307" y="0" width="54" height="18" uuid="9197089d-e33a-4bea-a03b-d1156608ac79"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_jenis_kelamin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="361" y="0" width="63" height="18" uuid="9211ddc9-d000-41a3-8614-6cb27e02c8be"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_alamat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="424" y="0" width="42" height="18" uuid="7e672d93-dd7e-4405-803b-b4374f052670"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_agama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="466" y="0" width="43" height="18" uuid="b02dd66f-f641-4bb6-ad4b-c8f19d1c0efc"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_no_telp}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="519" y="0" width="36" height="18" uuid="00951ac8-067f-46d1-93bc-16ab99d34b44"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_email}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="555" y="0" width="59" height="18" uuid="a384c76f-5c4e-4bde-9cbb-00cafc852198"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_universitas}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="614" y="0" width="44" height="18" uuid="487b9997-d606-4780-8b5b-3cc71413fead"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_fakultas}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="658" y="0" width="41" height="18" uuid="fbb86c51-be3e-4334-97f5-135dda573234"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_jurusan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="699" y="0" width="58" height="18" uuid="84730598-bc82-4260-acc4-ea279005e041"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_tahun_lulus}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="757" y="0" width="40" height="18" uuid="9024c360-0675-4c1f-a7bd-69460bd8ec8e"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{peserta_ipk}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="a97baa71-5d15-45ba-bf1c-3956d0b42a25"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="6de6b091-ff16-471a-a73c-cfccb427d44e"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="2a814c1c-1a51-4733-8f98-13b1d0f4f9ee"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="a6fd9754-477d-41e9-949c-17be5a072686"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
